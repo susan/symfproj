@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{question}}
+{% endblock %}
+
+{% block body %}
+	<h1>{{question}}?</h1>
+	<ul>
+		{% for answer in answers %}
+			<ol>{{answer}}</ol>
+		{% endfor %}
+	</ul>
+{% endblock %}
