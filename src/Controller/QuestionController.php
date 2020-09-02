@@ -11,20 +11,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuestionController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
      */
 
     public function homepage()
     {
-        return new Response("add message here");
+        return $this->render('question/homepage.html.twig');
+        //return new Response("add message here");
     }
     /**
-     * @Route("/questions/{slug}")
+     * @Route("/questions/{slug}", name="app_question_show")
      */
 
     public function show($slug)
     {
-
+        dump($this);
         return $this->render('question/show.html.twig', [
             'question' => ucwords(str_replace("-", " ", $slug)),
             'answers' => ["chicken", "turkey", "tuna", "beef"]
